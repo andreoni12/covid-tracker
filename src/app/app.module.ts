@@ -9,13 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StateCasesTrackerComponent } from './components/state-cases-tracker/state-cases-tracker.component';
 import { BrazilCasesTrackerComponent } from './components/brazil-cases-tracker/brazil-cases-tracker.component';
 import { CustomTableComponent } from './components/custom-table/custom-table.component';
+import { CountryCasesTrackerComponent } from './components/country-cases-tracker/country-cases-tracker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StateCasesTrackerComponent,
     BrazilCasesTrackerComponent,
-    CustomTableComponent
+    CustomTableComponent,
+    CountryCasesTrackerComponent
   ],
   imports: [
     BrowserModule,

@@ -2,18 +2,12 @@
   <div *ngIf="rows?.length">
     <div class="row mb-2">
       <div *ngFor="let column of columns" class="col">
-        <b>{{column}}</b>
+        <b><h6>{{column}}</h6></b>
       </div>
     </div>
     <div *ngFor="let row of rows" class="row">
-      <div class="col">
-        {{row.uf}}
-      </div>
-      <div class="col">
-        {{row.cases}}
-      </div>
-      <div class="col">
-        {{row.deaths}}
+      <div *ngFor="let prop of props" class="col mb-2">
+        {{prop === 'updated_at' ? (row[prop] | date: 'dd/MM/yyyy') : row[prop]}}
       </div>
     </div>
   </div>

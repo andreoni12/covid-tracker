@@ -9,7 +9,8 @@ import { Component, Input } from '@angular/core';
 export class CustomTableComponent {
 
   @Input() columns: Array<String>;
-  @Input() rows: Array<PlaceStats>;
+  @Input() rows: Array<any>;
+  @Input() props: Array<string>;
 
   constructor() { }
 

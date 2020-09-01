@@ -27,7 +27,6 @@ export class BrazilCasesTrackerComponent implements OnInit {
     this.isLoading = true;
     let response = await fetch(`https://covid19-brazil-api.now.sh/api/report/v1/brazil/${year}${month}${day}`);
     this.data = await response.json();
-    console.log(this.data);
     this.isLoading = false;
   }
 
@@ -43,5 +42,15 @@ export class BrazilCasesTrackerComponent implements OnInit {
 
   getColumns() {
     return ['UF', 'Casos', 'Mortes'];
+  }
+
+  getData() {
+    if(this.data && this.data['data']) {
+      return this.data['data'];
+    }
+  }
+
+  getProps() {
+    return ['uf','cases', 'deaths'];
   }
 }
