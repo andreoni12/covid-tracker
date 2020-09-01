@@ -1,5 +1,13 @@
 .max-height {
   max-height: 410px;
+}
+
+.overflow-table {
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.padding {
+  padding: 9% 0 9% 0;
+  overflow: hidden;
 }

@@ -1,20 +1,21 @@
-<div class="max-height">
+<div class="max-height overflow-table">
   <div *ngIf="rows?.length">
-    <div class="row mb-2">
-      <div *ngFor="let column of columns" class="col">
-        <b><h6>{{column}}</h6></b>
-      </div>
-    </div>
-    <div *ngFor="let row of rows" class="row">
-      <div *ngFor="let prop of props" class="col mb-2">
-        {{prop === 'updated_at' ? (row[prop] | date: 'dd/MM/yyyy') : row[prop]}}
-      </div>
-    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns" scope="col">{{column}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let prop of props">{{prop === 'updated_at' ? (row[prop] | date: 'dd/MM/yyyy') : row[prop]}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div *ngIf="!rows?.length" class="text-center">
-    <b>Nenhum dado encontrado!</b>
+  <div *ngIf="!rows?.length" class="text-center padding">
+    <img class="mb-2" height="230" width="385" src="../../../assets/not-found.png">
+    <b><h4>Nenhum dado encontrado!</h4></b>
   </div>
 </div>
-
-

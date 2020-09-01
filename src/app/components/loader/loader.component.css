@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+@keyframes load8 {
+  100% {
+    transform: rotatez(360deg);
+  }
+}
+.loader8::before {
+  content: "";
+  color: white;
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  border-color: #039be5 #039be5 transparent transparent;
+  animation: load8 0.6s infinite;
+}

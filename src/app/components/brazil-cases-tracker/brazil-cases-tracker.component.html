@@ -12,7 +12,8 @@
       </div>
     </div>
     <div class="card-body">
-      <custom-table [columns]="getColumns()" [rows]="getData()" [props]="getProps()"></custom-table>
+      <custom-table *ngIf="!isLoading"  [columns]="getColumns()" [rows]="getData()" [props]="getProps()"></custom-table>
+      <loader *ngIf="isLoading" ></loader>
     </div>
   </div>
 </div>
