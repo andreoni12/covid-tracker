@@ -1,6 +1,6 @@
 # CovidTracker
 
-CovidTracker is a Angular project to show some informations about Covid-19 around the world. This project was developed using the [Covid19 Brazil API](https://github.com/angular/angular-cli)
+[CovidTracker](https://covid-trckr-app.herokuapp.com/) is a Angular project to show some informations about Covid-19 around the world. This project was developed using the [Covid19 Brazil API](https://github.com/angular/angular-cli)
 
 ## Getting Started
 
