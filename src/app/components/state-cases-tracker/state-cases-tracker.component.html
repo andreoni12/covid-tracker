@@ -2,13 +2,12 @@
   <div class="card-body">
     <div class="card-title">
       <div class="row">
-        <div class="col-10">
+        <div class="col-9">
           <h4>Casos por Estado ({{currentState.toUpperCase()}})</h4>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <div class="form-group">
             <select class="form-control" [(ngModel)]="currentState" (change)="onStateSelect()">
-              <option selected disabled>{{currentState.toUpperCase()}}</option>
               <option *ngFor="let state of states" [value]="state">
                 {{ state }}
               </option>
@@ -18,12 +17,25 @@
       </div>
     </div>
     <div class="card-subtitle">
-      <h6 class="text-muted">Última Atualização: {{data?.datetime | date: 'dd/MM/yyyy HH:mm'}}</h6>
+      <h6 class="text-muted">Dados do dia: {{data?.datetime | date: 'dd/MM/yyyy'}}</h6>
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-6 cases text-center">
+        <div class="col-3 text-center">
+          <i class="fas fa-thermometer-full"></i>
+          <h4>{{data?.cases}}</h4>
+        </div>
+        <div class="col-3 text-center">
+          <i class="fas fa-home"></i>
+          <h4>{{data?.suspects}}</h4>
+        </div>
+        <div class="col-3 text-center">
           <i class="fas fa-skull"></i>
+          <h4>{{data?.deaths}}</h4>
+        </div>
+        <div class="col-3 state-info text-center">
+          <i class="fas fa-ban"></i>
+          <h4>{{data?.refuses}}</h4>
         </div>
       </div>
     </div>

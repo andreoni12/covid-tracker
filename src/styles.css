@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-.card {
-  border-radius: 4px;
+body {
+  background-color: #dddddd;
 }
+
+.card {
+  border-radius: 5px;
+}
+

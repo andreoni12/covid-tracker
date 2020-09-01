@@ -1,0 +1,6 @@
+.max-height {
+  max-height: 410px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+

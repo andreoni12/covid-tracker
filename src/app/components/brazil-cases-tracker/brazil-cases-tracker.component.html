@@ -1,0 +1,21 @@
+<div class="card max-height">
+  <div class="card-body">
+    <div class="card-title">
+      <div class="row">
+        <div class="col-8">
+          <h4>Casos no Brasil</h4>
+        </div>
+        <div class="col-4">
+          <input (bsValueChange)="onDateSelect($event)" [(ngModel)]="chosenDate" type="text" placeholder="Datepicker"
+            class="form-control" [bsConfig]="dateConfig" bsDatepicker>
+        </div>
+      </div>
+    </div>
+    <div class="card-subtitle">
+      <h6 class="text-muted">Dados do dia: {{chosenDate | date: 'dd/MM/yyyy'}}</h6>
+    </div>
+    <div class="card-body">
+      <custom-table [columns]="getColumns()" [rows]="data['data']"></custom-table>
+    </div>
+  </div>
+</div>

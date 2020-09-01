@@ -1,0 +1,26 @@
+<div class="max-height">
+  <div *ngIf="rows?.length">
+    <div class="row mb-2">
+      <div *ngFor="let column of columns" class="col">
+        <b>{{column}}</b>
+      </div>
+    </div>
+    <div *ngFor="let row of rows" class="row">
+      <div class="col">
+        {{row.uf}}
+      </div>
+      <div class="col">
+        {{row.cases}}
+      </div>
+      <div class="col">
+        {{row.deaths}}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!rows?.length" class="text-center">
+    <b>Nenhum dado encontrado!</b>
+  </div>
+</div>
+
+

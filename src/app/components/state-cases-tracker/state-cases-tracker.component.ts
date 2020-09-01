@@ -11,13 +11,14 @@ export class StateCasesTrackerComponent implements OnInit {
 
   data: PlaceStats;
   isLoading = false;
-  currentState = 'pe';
+  currentState: string;
 
   states = ConstantsSelects.states;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.currentState = 'pe';
     this.retrieveStats(this.currentState);
   }
 
@@ -25,7 +26,6 @@ export class StateCasesTrackerComponent implements OnInit {
     this.isLoading = true;
     let response = await fetch(`https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${state}`);
     this.data = await response.json();
-    console.log(this.data);
     this.isLoading = false;
   }
 
