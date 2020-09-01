@@ -33,9 +33,9 @@ export class BrazilCasesTrackerComponent implements OnInit {
   onDateSelect(event: Date) {
     this.chosenDate = event;
     if (this.chosenDate) {
-      const year = this.chosenDate.toLocaleDateString().substring(6, 10);
-      const month = this.chosenDate.toLocaleDateString().substring(3, 5);
-      const day = this.chosenDate.toLocaleDateString().substring(0, 2);
+      const year = this.chosenDate.toJSON().substring(0,4);
+      const month =this.chosenDate.toJSON().substring(5,7);
+      const day = this.chosenDate.toJSON().substring(8,10);
       this.retrieveStats(day, month, year);
     }
   }
