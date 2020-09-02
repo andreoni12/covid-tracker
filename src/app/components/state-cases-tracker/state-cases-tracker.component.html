@@ -3,7 +3,7 @@
     <div class="card-title">
       <div class="row">
         <div class="col-9">
-          <h4>Casos por Estado ({{currentState.toUpperCase()}})</h4>
+          <h4>Casos por Estado ({{currentState ? currentState?.toUpperCase() : '-'}})</h4>
         </div>
         <div class="col-3">
           <div class="form-group">
@@ -16,11 +16,11 @@
         </div>
       </div>
     </div>
-    <div class="card-subtitle">
+    <div *ngIf="data" class="card-subtitle">
       <h6 class="text-muted">Dados do dia: {{data?.datetime | date: 'dd/MM/yyyy'}}</h6>
     </div>
     <div class="card-body">
-      <div class="row" *ngIf="!isLoading">
+      <div class="row" *ngIf="!isLoading && data">
         <div class="col-3 text-center" tooltip="Casos">
           <i class="fas fa-viruses"></i>
           <h4>{{data?.cases}}</h4>
@@ -38,7 +38,12 @@
           <h4>{{data?.refuses}}</h4>
         </div>
       </div>
+
       <loader *ngIf="isLoading"></loader>
+
+      <div class="text-center" *ngIf="!currentState">
+        <strong>Selecione um estado brasileiro para ter mais informações!</strong>
+      </div>
     </div>
   </div>
 </div>

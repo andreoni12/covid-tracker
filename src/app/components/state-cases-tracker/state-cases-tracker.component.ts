@@ -18,8 +18,6 @@ export class StateCasesTrackerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.currentState = 'pe';
-    this.retrieveStats(this.currentState);
   }
 
   async retrieveStats(state: string) {

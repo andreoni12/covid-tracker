@@ -31,7 +31,19 @@ export class CountryCasesTrackerComponent implements OnInit {
 
   getData() {
     if (this.data && this.data['data']) {
-      return this.data['data'];
+      let returnArray;
+      returnArray = this.data['data'];
+      return returnArray.sort((n1, n2) => {
+        if (n1.deaths < n2.deaths) {
+          return 1;
+        }
+
+        if (n1.deaths > n2.deaths) {
+          return -1;
+        }
+
+        return 0;
+      })
     }
   }
 

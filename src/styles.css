@@ -3,8 +3,15 @@ body {
   background-color: #dddddd;
 }
 
+footer {
+  padding: 15px;
+  background-color: #000000;
+  color: #fff;
+}
+
 .card {
   border-radius: 5px;
+  min-height: 220px;
 }
 
 /* width */
@@ -29,4 +36,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-

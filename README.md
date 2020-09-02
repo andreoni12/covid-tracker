@@ -1,6 +1,6 @@
 # CovidTracker
 
-[CovidTracker](https://covid-trckr-app.herokuapp.com/) is a Angular project to show some informations about Covid-19 around the world. This project was developed using the [Covid19 Brazil API](https://github.com/angular/angular-cli)
+[CovidTracker](https://covid-trckr-app.herokuapp.com/) is a Angular project to show some informations about Covid-19 around the world. This project was developed using the [Covid19 Brazil API](https://covid19-brazil-api-docs.now.sh/)
 
 ## Getting Started
 
@@ -12,8 +12,8 @@ npm install
 
 ## Usage
 Run the following code on the project source to start the project
-```npm
-npm start
+```ng
+ng serve
 ```
 
 ## Contributing

@@ -1,3 +1,7 @@
 .max-height {
   max-height: 550px;
 }
+
+.card {
+  min-height: 350px;
+}
