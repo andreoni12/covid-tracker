@@ -13,5 +13,4 @@ export class CustomTableComponent {
   @Input() props: Array<string>;
 
   constructor() { }
-
 }

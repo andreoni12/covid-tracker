@@ -8,7 +8,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let row of rows">
-          <td *ngFor="let prop of props">{{prop === 'updated_at' ? (row[prop] | date: 'dd/MM/yyyy') : row[prop]}}</td>
+          <td *ngFor="let prop of props">{{row[prop] | prop}}</td>
         </tr>
       </tbody>
     </table>

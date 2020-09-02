@@ -1,3 +1,4 @@
+import { PropPipe } from './pipes/prop.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { CustomTableComponent } from './components/custom-table/custom-table.com
 import { CountryCasesTrackerComponent } from './components/country-cases-tracker/country-cases-tracker.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { CovidAdvicesComponent } from './components/covid-advices/covid-advices.component';
+import { DatePipe, DecimalPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,16 +24,17 @@ import { CovidAdvicesComponent } from './components/covid-advices/covid-advices.
     CustomTableComponent,
     CountryCasesTrackerComponent,
     LoaderComponent,
-    CovidAdvicesComponent
+    CovidAdvicesComponent,
+    PropPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
   ],
-  providers: [],
+  providers: [DatePipe, DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
