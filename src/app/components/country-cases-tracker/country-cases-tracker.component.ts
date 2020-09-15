@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api-service.service';
 import { Component, OnInit } from '@angular/core';
 import { CountryStats } from './../../domain/country-stats';
 
@@ -12,17 +13,20 @@ export class CountryCasesTrackerComponent implements OnInit {
   isLoading = false;
   data: Array<CountryStats>;
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.retrieveStats();
   }
 
-  async retrieveStats() {
+  retrieveStats() {
     this.isLoading = true;
-    let response = await fetch(`https://covid19-brazil-api.now.sh/api/report/v1/countries`);
-    this.data = await response.json();
-    this.isLoading = false;
+    this.apiService.retrieveCountryStats().subscribe(
+      response => {
+        this.data = response;
+        this.isLoading = false;
+      }
+    )
   }
 
   getColumns() {

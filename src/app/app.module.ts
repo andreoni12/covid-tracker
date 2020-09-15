@@ -1,3 +1,5 @@
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api-service.service';
 import { PropPipe } from './pipes/prop.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -30,11 +32,16 @@ import { DatePipe, DecimalPipe } from '@angular/common';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
   ],
-  providers: [DatePipe, DecimalPipe],
+  providers: [
+    DatePipe,
+    DecimalPipe,
+    ApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

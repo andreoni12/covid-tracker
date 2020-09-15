@@ -1,5 +1,6 @@
 import { PlaceStats } from './../../domain/place-stats';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api-service.service';
 
 @Component({
   selector: 'brazil-cases-tracker',
@@ -17,25 +18,28 @@ export class BrazilCasesTrackerComponent implements OnInit {
     containerClass: 'theme-default'
   };
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.chosenDate = new Date();
   }
 
-  async retrieveStats(day: string, month: string, year: string) {
+  retrieveStats(day: string, month: string, year: string) {
     this.isLoading = true;
-    let response = await fetch(`https://covid19-brazil-api.now.sh/api/report/v1/brazil/${year}${month}${day}`);
-    this.data = await response.json();
-    this.isLoading = false;
+    this.apiService.retrieveBrazilStats(day, month, year).subscribe(
+      response => {
+        this.data = response;
+        this.isLoading = false;
+      }
+    )
   }
 
   onDateSelect(event: Date) {
     this.chosenDate = event;
     if (this.chosenDate) {
-      const year = this.chosenDate.toJSON().substring(0,4);
-      const month =this.chosenDate.toJSON().substring(5,7);
-      const day = this.chosenDate.toJSON().substring(8,10);
+      const year = this.chosenDate.toJSON().substring(0, 4);
+      const month = this.chosenDate.toJSON().substring(5, 7);
+      const day = this.chosenDate.toJSON().substring(8, 10);
       this.retrieveStats(day, month, year);
     }
   }
@@ -45,12 +49,12 @@ export class BrazilCasesTrackerComponent implements OnInit {
   }
 
   getData() {
-    if(this.data && this.data['data']) {
+    if (this.data && this.data['data']) {
       return this.data['data'];
     }
   }
 
   getProps() {
-    return ['uf','cases', 'deaths'];
+    return ['uf', 'cases', 'deaths'];
   }
 }

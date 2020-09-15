@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api-service.service';
 import { ConstantsSelects } from './../../domain/constants-select';
 import { PlaceStats } from './../../domain/place-stats';
 import { Component, OnInit, Input } from '@angular/core';
@@ -15,16 +16,19 @@ export class StateCasesTrackerComponent implements OnInit {
 
   states = ConstantsSelects.states;
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
   }
 
   async retrieveStats(state: string) {
     this.isLoading = true;
-    let response = await fetch(`https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${state}`);
-    this.data = await response.json();
-    this.isLoading = false;
+    this.apiService.retrieveStatesStats(state).subscribe(
+      response => {
+        this.data = response;
+        this.isLoading = false;
+      }
+    )
   }
 
   onStateSelect() {
